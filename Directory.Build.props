@@ -1,0 +1,57 @@
+﻿<Project>
+  <PropertyGroup>
+    <Authors>andbaz,$(Company)</Authors>
+    <Company>cloudyte</Company>
+    <Copyright>Copyright © 2025 - $([System.DateTime]::UtcNow.ToString(`yyyy`)) $(Authors). All rights reserved.</Copyright>
+    <Description>Configuration provider. Used to transform existing configuration values by pattern.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworkVersions>net8.0;net9.0;net10.0</TargetFrameworkVersions>
+    <LangVersion>14.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AnalysisLevel>10.0-Recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet package">
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/cloudyte/tiny-bips.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/cloudyte/tiny-bips</PackageProjectUrl>
+    <PackageTags>BIP39;BIP-39</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+
+  <PropertyGroup>
+    <StrongNameKeyId>cloudyte</StrongNameKeyId>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)assets\key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <PublicSign>true</PublicSign>
+    <PublicKey>002400000e800000140200000602000000240000525341310010000001000100c197f9983a67eb273caffc57376b05f7788fb5399f61d30aa1cdccb69d3b83286ea45b6c5fb9eb7777db05f64b3bdcd72c6563e60a4520313ae3e88f8ea57d8d531e3d0ffdb1a88aa6ac6e6489ce4210a9a6f47705aa09e2849ae80e9a82da7d4aba3d08470000df192324516d77f2b1a28f8cc34218b7cab07e606b04ea7bde847c3a34434ef3ed08333661af03f2c5226424499ef7bb0cf302800cc9eb833b3fe413d3b22ea468f2ec9c2a040c7143d18983921ed1a69b917fa9b6d4d58554095ac17c5638936c89b341665cdca46db3274465860f843c1442480de56123b4ab7b71b74f258f4c82975d9006c8101c6e338eda5d26a2673cdb80e7b6d90700f3293f5e7f0290e79841a1d42f7f743f2776f0a5a16219d52afbf367f437d31a7251ba4c8266e766eec3b0a862a1e80e59f6e705d13cc7921464ad445cf5839859ef3ec4d6b7d9417b070ed85f9e0314e26daacb18d53932b47049715fb807f063526eb9b1914461a8298b13114b963985053560e91a3d46209dae61f1f552c056ddf5588ebac51198465330081ec48a4b598cec9d8ddb6e6d1090c7c18be541c732fe92fe1ddbc2469cbf834755ce730b1d489ee31145681b60a2afc35dfe2aab21708a9fa1caadaf577157e7c388a4b7f820cccf4989f077eac2ac4f373ff084aefc093127ebe888e29a4f1f76836cb2cf049dbb9494f3ea10d1258992c8bf</PublicKey>
+    <PublicKeyToken>dc4a5a00d6999242</PublicKeyToken>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'!='Debug'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+</Project>
